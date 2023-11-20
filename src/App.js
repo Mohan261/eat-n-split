@@ -18,10 +18,11 @@ function App() {
   });
   const [isActiveFriend, setActiveFriend] = useState(false);
   const [isActiveForm, setActiveForm] = useState(false);
-
+  const [thatId, setThatId] = useState();
   const handleOnSelect = (id) => {
     setSelect(datas.find((item) => item.id === id));
     setActiveForm(true);
+    setThatId(id);
     console.log(selectData);
   };
   const handleAdd = (newData) => {
@@ -54,6 +55,7 @@ function App() {
               selection={handleOnSelect}
               closeSelection={handleClose}
               formActive={isActiveForm}
+              idNum={thatId}
             />
           ))}
           <button

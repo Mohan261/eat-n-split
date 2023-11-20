@@ -1,6 +1,6 @@
 import React from "react";
 import "./Users.css";
-const Users = ({ data, selection, closeSelection, formActive }) => {
+const Users = ({ data, selection, closeSelection, formActive, idNum }) => {
   return (
     <div className="card">
       <div className="img">
@@ -21,13 +21,17 @@ const Users = ({ data, selection, closeSelection, formActive }) => {
         )}
       </div>
       <button
-        className={`${formActive ? "hide" : "view"} select-btn`}
+        className={`${
+          data.id === idNum && formActive ? "hide" : "view"
+        } select-btn`}
         onClick={() => selection(data.id)}
       >
         Select
       </button>
       <button
-        className={`${formActive ? "view" : "hide"} select-btn`}
+        className={`${
+          data.id === idNum && formActive ? "view" : "hide"
+        } select-btn`}
         onClick={() => closeSelection(data.id)}
       >
         close
